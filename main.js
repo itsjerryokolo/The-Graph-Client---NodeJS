@@ -18,7 +18,9 @@ const myQuery = `
 `
 
 async function executeQuery() {
-	const result = await execute(myQuery, {})
-	console.log(JSON.stringify(result))
+	await execute(myQuery, {})
+		.then((res) => console.log(res.data))
+		.catch((err) => console.log(err))
+		.finally(() => console.log('QUERY EXECUTED '))
 }
 executeQuery()
