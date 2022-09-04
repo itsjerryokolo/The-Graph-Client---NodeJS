@@ -1,11 +1,9 @@
 # .graphclientrc.yml
 sources:
-  - name: cryptopunks
+  - name: ens
     handler:
       graphql:
-        endpoint: https://api.thegraph.com/subgraphs/name/itsjerryokolo/cryptopunks
-  # - name: ens
-  #   handler:
-  #     graphql:
-  #       endpoint: https://api.thegraph.com/subgraphs/name/ensdomains/ens
+        endpoint: https://api.thegraph.com/subgraphs/name/ensdomains/ens
+
+
 

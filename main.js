@@ -1,26 +1,20 @@
 const { execute } = require('./.graphclient')
-
-const myQuery = `
-	{
-		accounts(where: { id: "0xf22f00d0b95b1b728078066e5f4410f6b2be8fae" }) {
-			averageAmountSpent
-			id
-			numberOfPunksAssigned
-			numberOfPunksOwned
-			numberOfPurchases
-			numberOfSales
-			accountUrl
-			numberOfTransfers
-			totalEarned
-			totalSpent
-		}
-	}
-`
+const { queryEnsName } = require('./graphql/ens')
 
 async function executeQuery() {
-	await execute(myQuery, {})
-		.then((res) => console.log(res.data))
+	let address = '0xbcb4ed1f05b8f017cf23e739552a6d81a014ee84'
+
+	await execute(
+		//Query
+		queryEnsName(),
+		//Variable
+		{ address: address }
+		//Config Object
+		//{config{ api: MY_API_TOKEN }}
+	)
+		.then((res) => console.log('User:', `${address}`, res.data))
 		.catch((err) => console.log(err))
-		.finally(() => console.log('QUERY EXECUTED '))
+		.finally(() => console.log('ENS QUERY EXECUTED'))
 }
+
 executeQuery()
