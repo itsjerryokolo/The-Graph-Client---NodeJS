@@ -4,6 +4,8 @@ sources:
     handler:
       graphql:
         endpoint: https://api.thegraph.com/subgraphs/name/ensdomains/ens
-
+plugins:
+  - pollingLive:
+      defaultInterval: 500
 
 

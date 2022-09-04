@@ -9,5 +9,14 @@ function queryEnsName() {
     }}
     `)
 }
-
-module.exports = { queryEnsName }
+var ensTransfersLive = `query MyQuery {
+  transfers(first: 10, orderBy: blockNumber, orderDirection: desc){
+    blockNumber
+    transactionID
+    domain {
+      id
+    }
+  }
+}
+`
+module.exports = { queryEnsName, ensTransfersLive }
